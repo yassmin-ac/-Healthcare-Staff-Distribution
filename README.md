@@ -2,6 +2,14 @@
 
 ## Table of Contents
 
+- [Project Overview](#project-overview)
+- [Data Sources](#data-sources)
+- [Tools](#tools)
+- [Data Cleaning and Preparation](#data-cleaning-and-preparation)
+- [Exploratory Data Analysis EDA](#exploratory-data-analysis-eda)
+- [Insights and Recommendations](#insights-and-recommendations)
+- [Data Visualization](#data-visualization)
+
 ## Project Overview
 
 This study reviews the distribution of U.S. healthcare staffing in Q1 2024, benchmarking work hours by role to generate insights and identify regional sales opportunities for a company that connects healthcare contractors with nursing homes in need of on-demand staff.
