@@ -283,3 +283,43 @@ LIMIT 10;
 ```
 
 ![8](https://github.com/user-attachments/assets/204caaa3-2e77-482c-aff3-d999843f0a95)
+
+## Insights and Recommendations
+
+The company generates revenue by selling an on-demand platform that connects healthcare professionals with nursing facilities, its primary clients. Analyzing total national work hours and contractor proportions highlights the CNA, LPN, and RN groups as the leaders in total hours worked. Maps ranking the top five states by contractor work hour proportions reveal a trend: most hours are concentrated in eastern states. A density map of recorded working hours shows that most cities with healthcare facilities are also concentrated in the east of the U.S. Facilities in the top states with the highest contractor hour proportions were identified, focusing on the top three categories.
+
+#### Key insights:
+
+​- Focus efforts on attracting professionals in the CNA, LPN, and RN categories to use the platform.
+- Launch a marketing campaign targeting the eastern side of the country.
+- Approach the following thirty facilities to sell platform services:
+
+![9](https://github.com/user-attachments/assets/59fa2c64-c6c4-4abe-9954-01373f9034c1)
+
+## Data Visualization
+
+To present the findings, I created an interactive Tableau dashboard allowing you to select and explore the specific information you need easily. Click [here](https://public.tableau.com/app/profile/yassmin.ac/viz/TakeHomeTestClipboardHealth/CNADash) to interact with the dashboard by following the instructions below:
+
+- Section 1:
+
+The first section displays the total worked hours for each professional category, highlighting a discrepancy in the hours worked by the CNA, LPN, and RN categories compared to others.
+
+![Demonstration 1](https://github.com/user-attachments/assets/bfc9e453-9482-4764-89b3-96c9df3b76c6)
+
+- Section 2:
+
+The second section presents a density map that highlights each city where working hours were recorded.
+
+![Demonstration 2](https://github.com/user-attachments/assets/b4da525f-014c-4e32-8645-a90d99e400e8)
+
+- Section 3:
+
+The third section displays data for each professional category, with interactive tabs that allow you to switch between categories. Each tab includes two visualizations:
+
+1. A map highlighting the five states with the highest proportion of contractor hours relative to total hours in the selected category. Hovering over each state reveals a tooltip showing the contractor percentage.
+
+2. A table ranking the top ten facilities with the highest contractor hours relative to total hours worked, all located within the top five states for the selected category.
+
+![Demonstration 3](https://github.com/user-attachments/assets/f92cadca-f481-4736-85d9-49c8c9039d32)
+
+
