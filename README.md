@@ -208,4 +208,78 @@ The maps revealed a trend: most hours were registered in states on the country's
 
 *Based on the data, it is recommended that a marketing campaign be launched on the West Coast, targeting the states ranked highest for each of the three selected professional categories.*
 
+### Identifying the Most Relevant Facilities
 
+In the final step, facilities with the highest proportion of contractor hours relative to total hours worked were identified. The top 3 categories and their 5 top states were considered.
+
+- CNA
+
+```sql
+SELECT
+   PROVNAME 
+   ,STATE 
+   ,CITY
+   ,CEIL((SUM(Hrs_CNA_ctr) * 100.0) / (SUM(Hrs_CNA_emp) + SUM(Hrs_CNA_ctr))) || '%' AS pct_Hrs_CNA_ctr
+FROM
+   PBJ_Daily_Nurse_Staffing_Q1_2024
+WHERE
+   STATE IN ('ME', 'NH', 'VT', 'NJ', 'PA')
+GROUP BY
+   PROVNAME 
+   ,STATE 
+   ,CITY
+HAVING
+   CEIL((SUM(Hrs_CNA_ctr) * 100.0) / (SUM(Hrs_CNA_emp) + SUM(Hrs_CNA_ctr))) >= 60
+ORDER BY pct_Hrs_CNA_ctr DESC
+LIMIT 10;
+```
+
+![6](https://github.com/user-attachments/assets/a1f88fbb-aaeb-4b5e-91ab-6fcb4eeeefd1)
+
+- LPN
+
+```sql
+SELECT
+   PROVNAME 
+   ,STATE 
+   ,CITY
+   ,CEIL((SUM(Hrs_LPN_ctr) * 100.0) / (SUM(Hrs_LPN_emp) + SUM(Hrs_LPN_ctr))) || '%' AS pct_Hrs_LPN_ctr
+FROM
+   PBJ_Daily_Nurse_Staffing_Q1_2024
+WHERE
+   STATE IN ('ME', 'NH', 'VT', 'PA', 'HI')
+GROUP BY
+   PROVNAME 
+   ,STATE 
+   ,CITY
+HAVING
+   CEIL((SUM(Hrs_LPN_ctr) * 100.0) / (SUM(Hrs_LPN_emp) + SUM(Hrs_LPN_ctr))) >= 60
+ORDER BY pct_Hrs_LPN_ctr DESC
+LIMIT 10;
+```
+
+![7](https://github.com/user-attachments/assets/bc52541d-8dd4-4c90-971e-f73bd6a738ed)
+
+- RN
+
+```sql
+SELECT
+   PROVNAME 
+   ,STATE 
+   ,CITY
+   ,CEIL((SUM(Hrs_RN_ctr) * 100.0) / (SUM(Hrs_RN_emp) + SUM(Hrs_RN_ctr))) || '%' AS pct_Hrs_RN_ctr
+FROM
+   PBJ_Daily_Nurse_Staffing_Q1_2024
+WHERE
+   STATE IN ('NY', 'MA', 'OR', 'DE', 'ME')
+GROUP BY
+   PROVNAME 
+   ,STATE 
+   ,CITY
+HAVING
+   CEIL((SUM(Hrs_RN_ctr) * 100.0) / (SUM(Hrs_RN_emp) + SUM(Hrs_RN_ctr))) >= 60
+ORDER BY pct_Hrs_RN_ctr DESC
+LIMIT 10;
+```
+
+![8](https://github.com/user-attachments/assets/204caaa3-2e77-482c-aff3-d999843f0a95)
