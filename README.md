@@ -116,4 +116,96 @@ FROM PBJ_Daily_Nurse_Staffing_Q1_2024;
 
 ![1](https://github.com/user-attachments/assets/bb8f97e9-2a51-4443-aa34-d8f7d72ed0b7)
 
+![1](https://github.com/user-attachments/assets/ed8ac124-ad92-45eb-8777-73a32f6468b6)
+
+Nursing homes typically employ a combination of full-time staff and contractors, with varying ratios across facilities. As healthcare professionals utilize the platform to find contract work in nursing homes that require on-demand staffing, they should be prioritized as key marketing targets. By calculating the ratio of contractors to total working hours for each category—considering both contractors and employees within each professional category—the following results were obtained:
+
+```sql
+SELECT 
+   CEIL((SUM(Hrs_CNA_ctr) * 100.0) / (SUM(Hrs_CNA_emp) + SUM(Hrs_CNA_ctr))) || '%' AS pct_Hrs_CNA_ctr
+   ,CEIL((SUM(Hrs_LPN_ctr) * 100.0) / (SUM(Hrs_LPN_emp) + SUM(Hrs_LPN_ctr))) || '%' AS pct_Hrs_LPN_ctr
+   ,CEIL((SUM(Hrs_RN_ctr) * 100.0) / (SUM(Hrs_RN_emp) + SUM(Hrs_RN_ctr))) || '%' AS pct_Hrs_RN_ctr
+   ,CEIL((SUM(Hrs_RNadmin_ctr) * 100.0) / (SUM(Hrs_RNadmin_emp) + SUM(Hrs_RNadmin_ctr))) || '%' AS pct_Hrs_RNadmin_ctr
+   ,CEIL((SUM(Hrs_MedAide_ctr) * 100.0) / (SUM(Hrs_MedAide_emp) + SUM(Hrs_MedAide_ctr))) || '%' AS pct_Hrs_MedAide_ctr
+   ,CEIL((SUM(Hrs_LPNadmin_ctr) * 100.0) / (SUM(Hrs_LPNadmin_emp) + SUM(Hrs_LPNadmin_ctr))) || '%' AS pct_Hrs_LPNadmin_ctr
+   ,CEIL((SUM(Hrs_RNDON_ctr) * 100.0) / (SUM(Hrs_RNDON_emp) + SUM(Hrs_RNDON_ctr))) || '%' AS pct_Hrs_RNDON_ctr
+   ,CEIL((SUM(Hrs_NAtrn_ctr) * 100.0) / (SUM(Hrs_NAtrn_emp) + SUM(Hrs_NAtrn_ctr))) || '%' AS pct_Hrs_NAtrn_ctr
+FROM PBJ_Daily_Nurse_Staffing_Q1_2024;
+```
+
+![2](https://github.com/user-attachments/assets/5bc147d2-f2ab-49bb-a5a1-551b7741a0bc)
+
+#### Insight
+
+*The analysis of the total national work hours and the contractor proportions in each category suggests focusing marketing campaigns on the CNA, LPN, and RN groups.​*
+
+### Top 3 Professional Categories: A Geographic Breakdown
+
+Next, the study concentrated on the CNA, LPN, and RN categories, ranking the five states with the highest proportion of contractor work hours relative to total hours.
+
+- CNA
+
+```sql
+SELECT 
+   STATE
+   ,CEIL((SUM(Hrs_CNA_ctr) * 100.0) / (SUM(Hrs_CNA_emp) + SUM(Hrs_CNA_ctr))) || '%' AS pct_Hrs_CNA_ctr
+FROM
+   PBJ_Daily_Nurse_Staffing_Q1_2024
+GROUP BY
+   STATE
+ORDER BY 
+   CEIL((SUM(Hrs_CNA_ctr) * 100.0) / (SUM(Hrs_CNA_emp) + SUM(Hrs_CNA_ctr))) DESC
+   LIMIT 5;
+```
+
+![3](https://github.com/user-attachments/assets/32fcdd24-daec-474a-87cb-e4b492494541)
+
+![2](https://github.com/user-attachments/assets/214954ea-f7f6-4a3d-ab42-2a3f30b9489e)
+
+- LPN
+
+```sql
+SELECT 
+   STATE
+   ,CEIL((SUM(Hrs_LPN_ctr) * 100.0) / (SUM(Hrs_LPN_emp) + SUM(Hrs_LPN_ctr))) || '%' AS pct_Hrs_LPN_ctr
+FROM
+   PBJ_Daily_Nurse_Staffing_Q1_2024
+GROUP BY
+   STATE
+ORDER BY 
+   CEIL((SUM(Hrs_LPN_ctr) * 100.0) / (SUM(Hrs_LPN_emp) + SUM(Hrs_LPN_ctr))) DESC
+   LIMIT 5;
+```
+
+![4](https://github.com/user-attachments/assets/de28ca6d-754b-4a1e-85a9-8c8a509abe66)
+
+![3](https://github.com/user-attachments/assets/899bbac4-5334-47b1-ae39-3156b50406cc)
+
+- RN
+
+```sql
+SELECT 
+   STATE
+   ,CEIL((SUM(Hrs_RN_ctr) * 100.0) / (SUM(Hrs_RN_emp) + SUM(Hrs_RN_ctr))) || '%' AS pct_Hrs_RN_ctr
+FROM
+   PBJ_Daily_Nurse_Staffing_Q1_2024
+GROUP BY
+   STATE
+ORDER BY 
+   CEIL((SUM(Hrs_RN_ctr) * 100.0) / (SUM(Hrs_RN_emp) + SUM(Hrs_RN_ctr))) DESC
+   LIMIT 5;
+```
+
+![5](https://github.com/user-attachments/assets/149601b8-0be5-4ee7-bbad-606115b91000)
+
+![4](https://github.com/user-attachments/assets/4232725c-c265-4370-906e-0f5c303e04cb)
+
+The maps revealed a trend: most hours were registered in states on the country's eastern side. To further explore this pattern, a density map was created to highlight each city where hours were recorded, which shows that most of the cities with registered healthcare facilities are also located on the eastern side of the country.
+
+![5](https://github.com/user-attachments/assets/83bac6eb-6b05-447e-af24-b3ccaa4408c8)
+
+#### Insight
+
+*Based on the data, it is recommended that a marketing campaign be launched on the West Coast, targeting the states ranked highest for each of the three selected professional categories.*
+
 
