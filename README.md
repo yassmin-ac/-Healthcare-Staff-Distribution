@@ -143,7 +143,7 @@ FROM PBJ_Daily_Nurse_Staffing_Q1_2024;
 
 ![2](https://github.com/user-attachments/assets/5bc147d2-f2ab-49bb-a5a1-551b7741a0bc)
 
-#### Insight
+#### Comment
 
 *The analysis of the total national work hours and the contractor proportions in each category suggests focusing marketing campaigns on the CNA, LPN, and RN groups.​*
 
@@ -212,7 +212,7 @@ The maps revealed a trend: most hours were registered in states on the country's
 
 ![5](https://github.com/user-attachments/assets/83bac6eb-6b05-447e-af24-b3ccaa4408c8)
 
-#### Insight
+#### Comment
 
 *Based on the data, it is recommended that a marketing campaign be launched on the West Coast, targeting the states ranked highest for each of the three selected professional categories.*
 
